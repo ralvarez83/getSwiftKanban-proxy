@@ -29,6 +29,7 @@ app.use(cors());
 app.use(cors({
   origin: function(origin, callback){
     // allow requests with no origin 
+    console.log(`Origin: ${origin}`);
     if(!origin) return callback(null, true);
     if(whitelist.indexOf(origin) === -1){
       var message = "The CORS policy for this origin doesn't allow access from the particular origin.";
