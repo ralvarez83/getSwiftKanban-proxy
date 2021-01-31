@@ -6,7 +6,7 @@ export const router: Router = Router();
 // Define your routes here
 router.get("/", (req, res) => {
   res.status(200).send({
-    message: "GET request from sample router: 1"
+    message: "GET request from sample router"
   });
 });
 
