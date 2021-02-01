@@ -1,4 +1,9 @@
 {
   "PORT": 8080,
-  "NODE_ENV": "development"
+  "NODE_ENV": "development",
+  "WHITE_LIST": [
+    "http://localhost:3000",
+    "https://getswiftkanban.herokuapp.com"
+  ],
+  "PROXY_TARGET": "https://login.swiftkanban.com/restapi"
 }

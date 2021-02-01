@@ -7,8 +7,6 @@ import { getFilesWithKeyword } from './utils/getFilesWithKeyword';
 import { createProxyMiddleware, Filter, Options, RequestHandler } from 'http-proxy-middleware';
 
 
-let whitelist = ['http://localhost:3000']
-
 const app: Express = express();
 
 /************************************************************************************
@@ -31,7 +29,7 @@ app.use(cors({
     // allow requests with no origin 
     // console.log(`Origin: ${origin}`);
     if(!origin) return callback(null, true);
-    if(whitelist.indexOf(origin) === -1){
+    if(config.WHITE_LIST.indexOf(origin) === -1){
       var message = "The CORS policy for this origin doesn't allow access from the particular origin.";
       return callback(new Error(message), false);
     }
@@ -45,7 +43,7 @@ if (process.env.NODE_ENV === 'production' || config.NODE_ENV === 'production') {
 }
 
 const proxyOptions = {
-  target: 'https://login.swiftkanban.com/restapi', // target host
+  target: config.PROXY_TARGET, // target host
   changeOrigin: true, // needed for virtual hosted sites
   ws: true, // proxy websockets
   pathRewrite: {
