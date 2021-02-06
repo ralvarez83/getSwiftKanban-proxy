@@ -3,7 +3,8 @@
   "NODE_ENV": "development",
   "WHITE_LIST": [
     "http://localhost:3000",
-    "https://getswiftkanban.herokuapp.com"
+    "https://getswiftkanban.herokuapp.com",
+    "https://getswiftkanban.web.app"
   ],
   "PROXY_TARGET": "https://login.swiftkanban.com/restapi"
 }
